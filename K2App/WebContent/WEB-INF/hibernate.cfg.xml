@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/k2.core</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.connection.autocommit">false</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    
+    <!-- per Hibernate 3, in Hibernate 4 questa classe non esiste più! -->
+    <!--<property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>-->
+    
+    <!-- Hibernate 4 -->
+    <!-- Prova Hibernate 4 -->
+    
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    
+    <!-- C3P0 Stuff Hiberante 3 -->
+    <!--
+    <property name="hibernate.c3p0.acquire_increment">10</property>
+    <property name="hibernate.c3p0.idle_test_period">40</property>
+    <property name="hibernate.c3p0.timeout">59</property>
+    <property name="hibernate.c3p0.max_size">60</property>
+    <property name="hibernate.c3p0.min_size">1</property>
+    <property name="hibernate.c3p0.max_statements">0</property>
+    <property name="hibernate.c3p0.preferredTestQuery">select 1;</property>
+    <property name="hibernate.c3p0.validate">true</property>
+    -->
+    
+    <!-- Prova Hibernate 4 -->
+    <!--<property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>-->
+    <!--<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="show_sql">true</property>
+    <property name="use_sql_comments">true</property>
+    <property name="hibernate.cache.use_second_level_cache">true</property>
+    <property name="hibernate.cache.use_query_cache">true</property>
+    <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+    
+    <!-- Entity Mapping -->
+    <!-- Per il mapping solo con le annotation della entity -->
+    
+    <mapping class="com.k2.entity.Layer" />
+    <mapping class="com.k2.entity.UploadedFile" />
+  
+    <!-- Oppure il mapping con il file di configurazione -->
+    <!--<mapping resource="iti/mcda/entity/Booklet.hbm.xml"/>
+    <mapping resource="iti/mcda/entity/Device.hbm.xml"/>
+    <mapping resource="iti/mcda/entity/FileBook.hbm.xml"/>
+    <mapping resource="iti/mcda/entity/Log.hbm.xml"/>
+    <mapping resource="iti/mcda/entity/User.hbm.xml"/>-->
+    
+  </session-factory>
+</hibernate-configuration>
